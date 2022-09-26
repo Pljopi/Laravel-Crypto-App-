@@ -35,7 +35,7 @@ class FavoriteController extends Controller
 		return $favorites;
 	}
 
-	public function checkUserId(Request $request)
+	public function checkUserId()
 	{
 		//---check if user is logged in---//
 		if (Auth::user()) {
@@ -53,7 +53,6 @@ class FavoriteController extends Controller
 
 	public function webRemoveFromFavorite(Request $request)
 	{
-
 		$favoriteCurrency =  $request->favorite;
 		$user_id = $this->checkUserId($request);
 		$this->removeFavorite($favoriteCurrency, $user_id);
@@ -62,7 +61,7 @@ class FavoriteController extends Controller
 
 	public function webAddToFavorite(Request $request)
 	{
-		$user_id = $this->checkUserId($request);
+		$user_id = $this->checkUserId();
 		$favoriteCurrency = $request->currency;
 		$this->addFavorite($favoriteCurrency, $user_id);
 		return redirect()->route('favorite/list');

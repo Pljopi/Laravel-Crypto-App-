@@ -10,26 +10,22 @@
 			Click on a currency to remove it from your favorites
 		</p>
 		<form
-			action={{ route ('favorite/remove') }} method="GET">
+			action={{ route ('favorite/remove') }} method="get">
 
 			@foreach ($favorite as $favorite)
 				<input
 					type="submit"
 					name="favorite"
 					class="button"
-					onclick="<script>window.location.reload();</script>" value="{{ $favorite }}" />
+					onclick="submit" value="{{ $favorite }}" />
 			@endforeach
 
 		</form>
-		@csrf
+
 	</div>
 
 
 
-	<script>
-		if (window.history.replaceState) {
-window.history.replaceState(null, null, window.location.href);
-}
-	</script>
+
 
 @endsection
