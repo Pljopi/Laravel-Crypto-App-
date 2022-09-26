@@ -27,7 +27,7 @@ class CryptoHelp extends Command
 	 */
 	public function handle()
 	{
-		$this->info("list of all commands: \n crypto:list \n crypto:price  \n crypto:favorite {add}, {remove}, {list}, \n crypto:help");
+		$this->info("list of all commands: \n crypto:list \n crypto:price  \n crypto:favorite {add}, {remove}, {list} \n crypto:help");
 		return 0;
 	}
 }

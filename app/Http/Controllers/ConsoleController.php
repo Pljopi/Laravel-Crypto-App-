@@ -9,7 +9,7 @@ use App\Http\Controllers\FavoriteController as FavoriteController;
 class ConsoleController extends Controller
 {
 
-	//---methods used to validate user imput before interacting with api or db---//
+	//---methods used to validate user input before interacting with api or db---//
 
 	public function pricePairValidation($cryptoCurrency, $currency)
 	{
@@ -90,7 +90,7 @@ class ConsoleController extends Controller
 	}
 
 
-	//---methods that return needed values to the console commands---//
+	//---methods that return needed values from api to the console commands---//
 
 	public function getPrice($criptoCurrency, $currency)
 	{
@@ -116,17 +116,18 @@ class ConsoleController extends Controller
 
 		$user_id = 3;
 		$fav = new FavoriteController();
-
-		$fav->addFavorite($favorite, $user_id);
+		foreach ($favorite as $value) {
+			$fav->addToFavorite($value, $user_id);
+		}
 	}
 
 	public function removeFavorite($favorite)
 	{
-
 		$user_id = 3;
 		$fav = new FavoriteController();
-
-		$fav->removeFavorite($favorite, $user_id);
+		foreach ($favorite as $value) {
+			$fav->removeFavorite($value, $user_id);
+		}
 	}
 
 	public function listFavorites($user_id)
