@@ -31,6 +31,6 @@ Route::controller(FavoriteController::class)->group(function () {
 
 	Route::get('favorite', 'webListFavorites')->name('favorite');
 	Route::get('favorite/add', 'webAddToFavorite')->name('favorite/add');
-	Route::get('favorite/remove', 'webRemoveFromFavorite')->name('favorite/remove');
+	Route::post('favorite/remove', 'webRemoveFromFavorite')->name('favorite/remove')->middleware('auth');
 	Route::get('favorite/list', 'webListAllCurrencies')->name('favorite/list');
 });

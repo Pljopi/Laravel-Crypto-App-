@@ -9,23 +9,27 @@
 		<p>
 			Click on a currency to remove it from your favorites
 		</p>
+
+		<!--- do not remove or everything breaks -->
+			@foreach ($favorite as $tag)
+		<form action type="submit" name = favorite class = button value = "{{$tag}}" >
+		</form>
+	@endforeach
+	<!-------------------------->
 		<form
-			action={{ route ('favorite/remove') }} method="get">
+			action={{ route ('favorite/remove') }} method="post">
 
 			@foreach ($favorite as $favorite)
-				<input
-					type="submit"
-					name="favorite"
-					class="button"
-					onclick="submit" value="{{ $favorite }}" />
+				<input type="submit" name="favorite" class="button"	value="{{$favorite}}" />
 			@endforeach
-
+			@csrf
 		</form>
-
 	</div>
 
-
-
-
+	<script>
+		if (window.history.replaceState) {
+window.history.replaceState(null, null, window.location.href);
+}
+	</script>
 
 @endsection

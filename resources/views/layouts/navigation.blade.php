@@ -36,7 +36,7 @@
                     <x-slot name="content">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                            {{ csrf_field() }}
 
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
@@ -78,7 +78,7 @@
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+                   {{ csrf_field() }}
 
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();

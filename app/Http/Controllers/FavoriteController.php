@@ -12,7 +12,7 @@ class FavoriteController extends Controller
 {
 	//---generic methods---//
 
-	public function addFavorite($favoriteCurrency, $user_id)
+	public function addToFavorite($favoriteCurrency, $user_id)
 	{
 		//---add favorite currency to table favorite ---//
 
@@ -50,9 +50,9 @@ class FavoriteController extends Controller
 
 
 	//--- methods that deal with the web page ---//
-
 	public function webRemoveFromFavorite(Request $request)
 	{
+
 		$favoriteCurrency =  $request->favorite;
 		$user_id = $this->checkUserId($request);
 		$this->removeFavorite($favoriteCurrency, $user_id);
@@ -61,9 +61,9 @@ class FavoriteController extends Controller
 
 	public function webAddToFavorite(Request $request)
 	{
-		$user_id = $this->checkUserId();
+		$user_id = $this->checkUserId($request);
 		$favoriteCurrency = $request->currency;
-		$this->addFavorite($favoriteCurrency, $user_id);
+		$this->addToFavorite($favoriteCurrency, $user_id);
 		return redirect()->route('favorite/list');
 	}
 
