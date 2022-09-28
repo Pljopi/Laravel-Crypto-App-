@@ -18,7 +18,7 @@
      or
     ./vendor/bin/sail up
 
-+++ For ease of use PHPMyAdmin is included, you can access it at http://localhost:8001 +++
+For ease of use PHPMyAdmin is included, you can access it at http://localhost:8001
 
 #### Enter container:
 
