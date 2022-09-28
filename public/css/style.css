@@ -108,6 +108,7 @@ nav img {
 .favourites {
   align-items: auto;
   float: center;
+  color: black;
 }
 
 .favourites p {
@@ -115,8 +116,13 @@ nav img {
 }
 
 .favourites h1 {
-
+  color: black;
   font-size: 35px;
+}
+
+.favourites p {
+  color: black;
+  font-size: 20px;
 }
 
 .favourites h2 {

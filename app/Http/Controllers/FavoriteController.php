@@ -46,6 +46,12 @@ class FavoriteController extends Controller
 			return $user_id;
 		}
 	}
+	public function listAll()
+	{
+		//---list all currencies from api ---//
+		$api = new ApiWrapper();
+		return $api->getList();
+	}
 
 
 
@@ -76,8 +82,14 @@ class FavoriteController extends Controller
 
 	public function webListAllCurrencies()
 	{
-		$api = new ApiWrapper();
-		$currency = $api->getList();
+
+		$currency = $this->listAll();
 		return view('pages.listAllCurrencies', ['currency' => $currency]);
+	}
+
+	public function priceListAllCurrencies()
+	{
+		$currency = $this->listAll();
+		return view('pages.home', ['currency' => $currency]);
 	}
 }

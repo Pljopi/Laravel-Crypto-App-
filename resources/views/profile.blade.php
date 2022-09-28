@@ -5,7 +5,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Dashboard') }}
+                {{ __('My Profile') }}
             </h2>
         </x-slot>
         <div>
@@ -16,10 +16,10 @@
                             Name
                         </th>
                         <th>
-                            email
+                            Email
                         </th>
                         <th>
-                            Action
+                            Verified
                         </th>
                     </tr>
                 </thead>
@@ -32,9 +32,11 @@
                             {{ Auth::user()->email }}
                         </td>
                         <td>
-                            <a href={{ route('logout') }}>
-                                Logout
-                            </a>
+                            @if (Auth::user()->email_verified_at)
+                                <span class="text-green-500">Verified</span>
+                            @else
+                                <span class="text-red-500">Not Verified</span>
+                            @endif
                         </td>
                     </tr>
                 </tbody>
@@ -44,7 +46,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-black overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-black border-b border-golden-200">
-                        You're logged in!
+                        This is your profile
                     </div>
 
                 </div>

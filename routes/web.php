@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FavoriteController as FavoriteController;
+use App\Http\Controllers\WebController as WebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,16 @@ require __DIR__ . '/auth.php';
 // Path: routes/auth.php
 
 
-Route::controller(FavoriteController::class)->group(function () {
+Route::controller(WebController::class)->group(function () {
 
 	Route::get('favorite', 'webListFavorites')->name('favorite');
 	Route::get('favorite/add', 'webAddToFavorite')->name('favorite/add');
 	Route::post('favorite/remove', 'webRemoveFromFavorite')->name('favorite/remove')->middleware('auth');
 	Route::get('favorite/list', 'webListAllCurrencies')->name('favorite/list');
+	Route::get('home', 'priceListAllCurrencies')->name('home');
+	Route::get('price', 'price')->name('price');
+});
+
+Route::group(['mddleware' => 'auth'], function () {
+	Route::view(uri: 'profile', view: 'profile')->name('profile');
 });
